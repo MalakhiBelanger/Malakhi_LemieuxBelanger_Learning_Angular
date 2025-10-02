@@ -1,3 +1,19 @@
 div {
+
+}
+.container {
+  display:flex;
+  align-items: center;
   border: solid 2px black;
+  max-width: 500px;
+  margin: auto;
+}
+#even {
+  background-color: teal;
+}
+#odd {
+  background-color: pink;
+}
+img {
+  margin: 3px;
 }

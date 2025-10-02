@@ -1,5 +1,1 @@
-<app-card-list-item [card]="cardList[0]"></app-card-list-item>
-<app-card-list-item [card]="cardList[1]"></app-card-list-item>
-<app-card-list-item [card]="cardList[2]"></app-card-list-item>
-<app-card-list-item [card]="cardList[3]"></app-card-list-item>
-
+<app-card-list-item *ngFor="let card of cardList; index as i" [card]="card" [even]="i%2==0"></app-card-list-item>

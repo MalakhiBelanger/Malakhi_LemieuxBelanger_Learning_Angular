@@ -1,3 +1,13 @@
-<div>
-  <h2>{{card?.name}}</h2>
+<div id="{{even?'even':'odd'}}" class="container">
+  <div>
+    <img ngSrc="{{card.src}}" alt="{{card.name}}" width="256" height="357"/>
+  </div>
+  <div>
+    <h2>{{card.name}}</h2>
+    <p>{{card.name}} {{card.cost}}</p>
+    <p>{{card.type}}</p>
+    <p *ngIf="card.oracle">{{card.oracle}}</p>
+    <!-- If a card has Toughness assigned, it must also have Power, so I only have to check one. -->
+    <p *ngIf="card.power">{{card.power}}/{{card.toughness}}</p>
+  </div>
 </div>
