@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Card } from './models/card';
 import {NgForOf, NgIf} from '@angular/common';
+import {CardListComponent} from './card-list/card-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ NgIf, NgForOf],
+  imports: [NgIf, NgForOf, CardListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
