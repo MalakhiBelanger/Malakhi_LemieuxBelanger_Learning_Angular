@@ -5,9 +5,10 @@
 <body>
   <main>
     <header>
+      <button (click)="onClick()">Help</button>
       <h1>Magic the Gathering Cards Library</h1>
     </header>
-    <app-card-list-item [card]="topCard"></app-card-list-item>
+    <app-card-list-item [card]="topCard" ></app-card-list-item>
     <app-card-list></app-card-list>
     <footer>
       <h2>Made By Malakhi Lemieux-Belanger</h2>

@@ -8,7 +8,7 @@ import { MagicCardService } from '../services/magic-card.service';
   selector: 'app-card-list',
   imports: [
     CardListItemComponent,
-    NgForOf
+    NgForOf,
   ],
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.css'
@@ -18,6 +18,9 @@ export class CardListComponent implements OnInit {
   protected cardList: Card[] = [];
   constructor(private cardService: MagicCardService) {
     this.magicCardService = cardService
+  }
+  onButtonClick() {
+    alert('Button Clicked');
   }
   ngOnInit() {
     this.magicCardService.getCards().subscribe({
