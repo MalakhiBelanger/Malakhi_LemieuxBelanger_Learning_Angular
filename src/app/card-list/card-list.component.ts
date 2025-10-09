@@ -14,7 +14,7 @@ import { MagicCardService } from '../services/magic-card.service';
   styleUrl: './card-list.component.css'
 })
 export class CardListComponent implements OnInit {
-  private magicCardService: MagicCardService;
+  protected magicCardService: MagicCardService;
   protected cardList: Card[] = [];
   constructor(private cardService: MagicCardService) {
     this.magicCardService = cardService

@@ -7,20 +7,8 @@
     <header>
       <h1>Magic the Gathering Cards Library</h1>
     </header>
+    <app-card-list-item [card]="topCard"></app-card-list-item>
     <app-card-list></app-card-list>
-    <div class="container">
-      <div *ngFor = "let card of cardList">
-        <!-- I'm going to create a div within this div so that I can use the card data to make the class and use it for CSS to color dynamically.
-         I don't know if it's possible to do this in another way. -->
-        <div class= "{{card.color}}" id="card">
-          <p>{{card.name}} {{card.cost}}</p>
-          <p>{{card.type}}</p>
-          <p *ngIf="card.oracle">{{card.oracle}}</p>
-          <!-- If a card has Toughness assigned, it must also have Power, so I only have to check one. -->
-          <p *ngIf="card.power">{{card.power}}/{{card.toughness}}</p>
-        </div>
-      </div>
-    </div>
     <footer>
       <h2>Made By Malakhi Lemieux-Belanger</h2>
     </footer>

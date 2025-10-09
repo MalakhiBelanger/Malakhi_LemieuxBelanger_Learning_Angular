@@ -33,9 +33,8 @@ export class MagicCardService {
     return of(this.cards);
   }
   // Get card by ID
-  getCardById(cardId: number): Observable<Card> {
+  getCardById(cardId: number): Observable<Card | undefined> {
     const card = this.cards.find(card => card.id === cardId)
-    // @ts-ignore
     return of(card)
   }
 }
