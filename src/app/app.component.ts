@@ -22,7 +22,4 @@ export class AppComponent implements OnInit {
       }
     })
   }
-  onClick() {
-    alert("Why is this not working ????")
-  }
 }
