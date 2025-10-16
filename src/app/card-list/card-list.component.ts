@@ -19,9 +19,6 @@ export class CardListComponent implements OnInit {
   constructor(private cardService: MagicCardService) {
     this.magicCardService = cardService
   }
-  onButtonClick() {
-    alert('Button Clicked');
-  }
   ngOnInit() {
     this.magicCardService.getCards().subscribe({
       next: (data:Card[]) => this.cardList = data, error:err => console.error("Error fetching", err), complete:() => console.log("fetch complete!")

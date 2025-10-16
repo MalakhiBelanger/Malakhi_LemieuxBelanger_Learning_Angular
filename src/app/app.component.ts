@@ -7,7 +7,8 @@ import {MagicCardService} from './services/magic-card.service';
   selector: 'app-root',
   imports: [CardListComponent, CardListItemComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  standalone: true
 })
 export class AppComponent implements OnInit {
   protected magicCardService: MagicCardService;
@@ -21,8 +22,5 @@ export class AppComponent implements OnInit {
         this.topCard = a;
       }
     })
-  }
-  onClick() {
-    alert("Why is this not working ????")
   }
 }
