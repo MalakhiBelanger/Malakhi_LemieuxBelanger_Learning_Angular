@@ -1,1 +1,1 @@
-<app-card-list-item *ngFor="let card of cardList; index as i" [card]="card" [even]="i%2==0"></app-card-list-item>
+<app-card-list-item *ngFor="let card of cardList; index as i" [card]="card" [even]="i%2==0" [routerLink]="['/cards', card.id]"></app-card-list-item>
