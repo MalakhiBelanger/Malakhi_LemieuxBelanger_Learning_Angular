@@ -21,7 +21,8 @@ export class MagicCardService {
   }
   // Update an Existing card
   updateCard(updatedCard: Card): Observable<Card[]> {
-    const i = this.cards.findIndex(card => card.id === updatedCard.id)
+    const i = this.cards.findIndex(card => card.id == updatedCard.id)
+    console.log(updatedCard.id)
     if(i !== -1) {
       this.cards[i] = updatedCard
     }
@@ -36,5 +37,9 @@ export class MagicCardService {
   getCardById(cardId: number): Observable<Card | undefined> {
     const card = this.cards.find(card => card.id === cardId)
     return of(card)
+  }
+
+  generateNewId(): number {
+    return this.cards.length > 0 ? Math.max(...this.cards.map(card => card.id)) + 1: 1;
   }
 }

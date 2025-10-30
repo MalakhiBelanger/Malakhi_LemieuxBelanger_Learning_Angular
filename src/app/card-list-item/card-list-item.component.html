@@ -1,5 +1,5 @@
 <div id="{{even?'even':'odd'}}" class="container">
-  <div>
+  <div *ngIf="card.src">
     <img ngSrc="{{card.src}}" width="256" height="357" alt="{{card.name}}"/>
   </div>
   <div>
@@ -9,5 +9,8 @@
     <p *ngIf="card.oracle">{{card.oracle}}</p>
     <!-- If a card has Toughness assigned, it must also have Power, so I only have to check one. -->
     <p *ngIf="card.power">{{card.power}}/{{card.toughness}}</p>
+    <button [routerLink]="['/edit', card.id]">Edit</button>
+    <button (click)="delete()">Delete</button>
+    <button [routerLink]="['/cards', card.id]">View Details</button>
   </div>
 </div>
