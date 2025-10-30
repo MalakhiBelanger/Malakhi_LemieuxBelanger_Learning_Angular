@@ -1,30 +1,32 @@
 import {Component, OnInit} from '@angular/core';
 import {Card} from '../models/card';
 import {CardListItemComponent} from '../card-list-item/card-list-item.component';
-import {NgForOf} from '@angular/common';
+
 import { MagicCardService } from '../services/magic-card.service';
 import {ModifyListItemComponent} from '../modify-list-item/modify-list-item.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-card-list',
   imports: [
     CardListItemComponent,
-    NgForOf,
     ModifyListItemComponent,
+    RouterLink
   ],
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.css'
 })
 export class CardListComponent implements OnInit {
-  protected magicCardService: MagicCardService;
   protected cardList: Card[] = [];
   constructor(private cardService: MagicCardService) {
-    this.magicCardService = cardService
   }
   ngOnInit() {
-    this.magicCardService.getCards().subscribe({
+    this.cardService.getCards().subscribe({
       next: (data:Card[]) => this.cardList = data, error:err => console.error("Error fetching", err), complete:() => console.log("fetch complete!")
     })
+  }
+  protected delete(id: number) {
+    this.cardService.deleteCard(id).subscribe(a => this.cardList = a)
   }
 }
 

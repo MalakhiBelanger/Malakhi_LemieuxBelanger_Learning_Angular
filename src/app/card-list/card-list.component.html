@@ -1,2 +1,12 @@
-<app-card-list-item *ngFor="let card of cardList; index as i" [card]="card" [even]="i%2==0"></app-card-list-item>
-<app-modify-list-item></app-modify-list-item>
+@for (card of cardList; track card; let i = $index) {
+  <app-card-list-item [card]="card" [even]="i%2==0"></app-card-list-item>
+  <div>
+    Actions:
+    <button [routerLink]="['/edit', card.id]">Edit</button>
+    <button [routerLink]="['/cards', card.id]">View Details</button>
+    <button (click)="delete(card.id)">Delete</button>
+  </div>
+
+}
+<div><app-modify-list-item></app-modify-list-item>
+</div>

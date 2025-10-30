@@ -3,14 +3,13 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {MagicCardService} from '../services/magic-card.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Card} from '../models/card';
-import {NgIf} from '@angular/common';
+
 
 @Component({
   selector: 'app-modify-list-item',
   imports: [
-    ReactiveFormsModule,
-    NgIf
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })
@@ -55,5 +54,6 @@ export class ModifyListItemComponent implements OnInit {
       card.id = this.cardService.generateNewId();
       this.cardService.addCard(card)
     }
+    this.router.navigate(['/cards']);
   }
 }
