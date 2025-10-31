@@ -9,6 +9,7 @@ const routes: Routes = [
   {path:'', redirectTo: 'cards', pathMatch: 'full'},
   {path: 'cards', component: CardListComponent},
   {path: 'cards/:id', component: CardListItemComponent},
+  {path: 'edit', component: ModifyListItemComponent},
   {path: 'edit/:id', component: ModifyListItemComponent},
   {path: '**', redirectTo: '/'}
 ]
