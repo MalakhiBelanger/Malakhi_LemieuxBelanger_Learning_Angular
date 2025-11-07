@@ -26,9 +26,9 @@ export class CardListComponent implements OnInit {
     })
   }
   protected delete(id: number) {
-    this.cardService.deleteCard(id).subscribe(_ => {
+    this.cardService.deleteCard(id).subscribe(() => {
       this.cardService.getCards().subscribe(a => this.cardList = a)
-    })
+    }, error => console.error("Error deleting card", error))
   }
 }
 

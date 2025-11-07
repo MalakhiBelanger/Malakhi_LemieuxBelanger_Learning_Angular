@@ -49,11 +49,10 @@ export class ModifyListItemComponent implements OnInit {
   onSubmit(): void {
     const card: Card = this.cardForm.value;
     if(card.id) {
-      this.cardService.updateCard(card)
+      this.cardService.updateCard(card).subscribe(() => this.router.navigate([`/cards/${card.id}`]), error => console.error("Error creating card", error))
     } else {
       card.id = this.cardService.generateNewId();
-      this.cardService.addCard(card)
+      this.cardService.addCard(card).subscribe(() => this.router.navigate([`/cards/${card.id}`]), error => console.error("Error creating card", error))
     }
-    this.router.navigate(['/cards']);
   }
 }
