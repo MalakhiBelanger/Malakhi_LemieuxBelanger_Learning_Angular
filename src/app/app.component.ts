@@ -7,4 +7,6 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
   styleUrl: './app.component.css',
   standalone: true
 })
-export class AppComponent {}
+export class AppComponent {
+  title: string = 'Malakhi_LemieuxBelanger_Learning_Angular'
+}

@@ -1,42 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import {Card} from '../models/card';
 import {cardList} from '../data/mock-content';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MagicCardService {
-  private cards: Card[];
-  constructor() {
-    this.cards = cardList;
-  }
+  private apiUrl = 'api/cards';
+  private cards: Card[]= cardList;
+  constructor(private http: HttpClient) {}
   getCards(): Observable<Card[]> {
-    return of(this.cards);
+    return this.http.get<Card[]>(this.apiUrl);
   }
   // Add a new card
-  addCard(newCard:Card) : Observable<Card[]> {
-    this.cards.push(newCard)
-    return of(this.cards);
+  addCard(card:Card) : Observable<Card> {
+    return this.http.post<Card>(this.apiUrl, card)
   }
   // Update an Existing card
-  updateCard(updatedCard: Card): Observable<Card[]> {
-    const i = this.cards.findIndex(card => card.id == updatedCard.id)
-    console.log(updatedCard.id)
-    if(i !== -1) {
-      this.cards[i] = updatedCard
-    }
-    return of(this.cards);
+  updateCard(card: Card): Observable<Card | undefined> {
+    const url = `${this.apiUrl}/${card.id}`;
+    return this.http.put<Card>(url, card);
   }
   // Delete: Remove a card by ID
-  deleteCard(cardId: number): Observable<Card[]> {
-    this.cards = this.cards.filter(card => card.id !== cardId);
-    return of(this.cards);
+  deleteCard(id: number): Observable<{}> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url)
   }
   // Get card by ID
-  getCardById(cardId: number): Observable<Card | undefined> {
-    const card = this.cards.find(card => card.id === cardId)
-    return of(card)
+  getCardById(id: number): Observable<Card> {
+    return this.http.get<Card>(`${this.apiUrl}/${id}`);
   }
 
   generateNewId(): number {
