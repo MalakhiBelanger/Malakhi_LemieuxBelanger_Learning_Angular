@@ -3,6 +3,7 @@ import {Card} from '../models/card';
 import {CurrencyPipe, NgOptimizedImage, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {MagicCardService} from '../services/magic-card.service';
+import {PowerToughnessPipe} from '../power-toughness.pipe';
 @Component({
   selector: 'app-card-list-item',
   imports: [
@@ -10,6 +11,7 @@ import {MagicCardService} from '../services/magic-card.service';
     UpperCasePipe,
     TitleCasePipe,
     CurrencyPipe,
+    PowerToughnessPipe,
   ],
   templateUrl: './card-list-item.component.html',
   styleUrl: './card-list-item.component.css',

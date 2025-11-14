@@ -13,7 +13,7 @@
     }
     <!-- If a card has Toughness assigned, it must also have Power, so I only have to check one. -->
     @if (card.power) {
-      <p>{{card.power}}/{{card.toughness}}</p>
+      <p>{{card | powerToughness}}</p>
     }
     <p>Lowest printing: {{card.printing | currency: 'USD'}}</p>
   </div>
