@@ -1,12 +1,12 @@
 <div id="{{even?'even':'odd'}}" class="container">
-  @if (card.src) {
+  @if (card.source) {
     <div>
-      <img ngSrc="{{card.src}}" width="256" height="357" alt="{{card.name}}"/>
+      <img ngSrc="{{card.source}}" width="256" height="357" alt="{{card.name}}"/>
     </div>
   }
   <div>
-    <h2>{{card.name}}</h2>
-    <p>{{card.name}} {{card.cost}}</p>
+    <h2>{{card.name | titlecase }}</h2>
+    <p>{{card.name}} {{card.cost | uppercase }}</p>
     <p>{{card.type}}</p>
     @if (card.oracle) {
       <p>{{card.oracle}}</p>
@@ -15,5 +15,6 @@
     @if (card.power) {
       <p>{{card.power}}/{{card.toughness}}</p>
     }
+    <p>Lowest printing: {{card.printing | currency: 'USD'}}</p>
   </div>
 </div>

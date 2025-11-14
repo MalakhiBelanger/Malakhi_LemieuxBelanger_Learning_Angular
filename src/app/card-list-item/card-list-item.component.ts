@@ -1,13 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Card} from '../models/card';
-import { NgOptimizedImage } from '@angular/common';
+import {CurrencyPipe, NgOptimizedImage, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {MagicCardService} from '../services/magic-card.service';
 @Component({
   selector: 'app-card-list-item',
   imports: [
     NgOptimizedImage,
-],
+    UpperCasePipe,
+    TitleCasePipe,
+    CurrencyPipe,
+  ],
   templateUrl: './card-list-item.component.html',
   styleUrl: './card-list-item.component.css',
 })
@@ -20,6 +23,7 @@ export class CardListItemComponent implements OnInit{
       this.cardService.getCardById(Number(id)).subscribe(card => {
         if(card) {
           this.card = card;
+          console.log(this.card)
         }
       })
     }

@@ -7,5 +7,6 @@ export interface Card {
   oracle?: string;
   power?: string;
   toughness?: string;
-  src?: string;
+  source?: string;
+  printing: number;
 }

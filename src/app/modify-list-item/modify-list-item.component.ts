@@ -32,7 +32,8 @@ export class ModifyListItemComponent implements OnInit {
       oracle: [''],
       power: [''],
       toughness: [''],
-      src: [''],
+      source: [''],
+      printing: ['', Validators.required],
     })
   }
   ngOnInit() {
@@ -48,6 +49,7 @@ export class ModifyListItemComponent implements OnInit {
   }
   onSubmit(): void {
     const card: Card = this.cardForm.value;
+    console.log(card)
     if(card.id) {
       this.cardService.updateCard(card).subscribe(() => this.router.navigate([`/cards/${card.id}`]), error => console.error("Error creating card", error))
     } else {
