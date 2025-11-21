@@ -3,13 +3,15 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {MagicCardService} from '../services/magic-card.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Card} from '../models/card';
+import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
 
 
 @Component({
   selector: 'app-modify-list-item',
   imports: [
-    ReactiveFormsModule
-],
+    ReactiveFormsModule,
+    HighlightOnFocusDirective
+  ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })
