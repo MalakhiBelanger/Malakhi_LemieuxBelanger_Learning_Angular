@@ -4,6 +4,8 @@ import {CurrencyPipe, NgOptimizedImage, TitleCasePipe, UpperCasePipe} from '@ang
 import {ActivatedRoute} from '@angular/router';
 import {MagicCardService} from '../services/magic-card.service';
 import {PowerToughnessPipe} from '../power-toughness.pipe';
+import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
+import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
 @Component({
   selector: 'app-card-list-item',
   imports: [
@@ -12,6 +14,7 @@ import {PowerToughnessPipe} from '../power-toughness.pipe';
     TitleCasePipe,
     CurrencyPipe,
     PowerToughnessPipe,
+    HoverHighlightDirective
   ],
   templateUrl: './card-list-item.component.html',
   styleUrl: './card-list-item.component.css',

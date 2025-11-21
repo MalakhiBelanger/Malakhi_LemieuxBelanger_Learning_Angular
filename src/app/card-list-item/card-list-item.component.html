@@ -1,4 +1,4 @@
-<div id="{{even?'even':'odd'}}" class="container">
+<div id="{{even?'even':'odd'}}" class="container" [appHoverHighlight]="'lightblue'" >
   @if (card.source) {
     <div>
       <img ngSrc="{{card.source}}" width="256" height="357" alt="{{card.name}}"/>

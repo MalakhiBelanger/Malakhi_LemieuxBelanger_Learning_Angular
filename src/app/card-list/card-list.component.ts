@@ -5,6 +5,7 @@ import {CardListItemComponent} from '../card-list-item/card-list-item.component'
 import { MagicCardService } from '../services/magic-card.service';
 import {ModifyListItemComponent} from '../modify-list-item/modify-list-item.component';
 import {RouterLink} from '@angular/router';
+import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
 
 @Component({
   selector: 'app-card-list',
